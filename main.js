@@ -7,7 +7,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 1400, height: 900})
 
   // and load the index.html of the app.
   mainWindow.loadURL('http://localhost:3000/')
@@ -23,11 +23,11 @@ function createWindow () {
     mainWindow = null
   })
 
-  console.log(mainWindow.webContents.print({
-    silent: true,
-    deviceName: 'Officejet_Pro_8600',
-    printBackground: true
-  }))
+  // console.log(mainWindow.webContents.print({
+  //   silent: true,
+  //   deviceName: 'Officejet_Pro_8600',
+  //   printBackground: true
+  // }))
   // mainWindow.webContents.on('found-in-page', (event, result) => {
   //   console.log(webContents)
   //   // if (result.finalUpdate) webContents.stopFindInPage('clearSelection')
