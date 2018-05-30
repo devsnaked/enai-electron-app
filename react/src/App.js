@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/home/home'
 import Keyboard from './components/keyboard/keyboard'
+import Confirm from './components/confirm/confirm'
 import './App.css';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/keyboard" component={Keyboard} />
+            <Route exact path="/credentials/:cpf" component={Confirm} />
           </Switch>
         </BrowserRouter>
       </div>

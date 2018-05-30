@@ -4,7 +4,7 @@ import icon from "./icon/arrow.png";
 import { Link } from "react-router-dom";
 export default class Keyboard extends Component {
   state = {
-    input: [],
+    input: [6, 4, 6, '.', 8, 8, 5, '.', 3, 7, 2, '-', 9, 8],
     text: ["_", "_", "_", ".", "_", "_", "_", ".", "_", "_", "_", "-", "_", "_"]
   };
 
@@ -27,8 +27,7 @@ export default class Keyboard extends Component {
               <button
                 key={btn}
                 onClick={e => this.KeyboardClick(e)}
-                value={btn}
-              >
+                value={btn}>
                 {btn}
               </button>
             ))}
@@ -88,11 +87,28 @@ export default class Keyboard extends Component {
   }
 
   confirmButton() {
-    if (this.state.input.length === 14)
+    if (this.state.input.length === 14) {
+      let cpf = this.state.input.reduce((acc, i) => acc + i.toString())
       return (
-        <button className="confirm-btn">
-          CONFIRMAR
-        </button>
+        <Link to={`/credentials/${cpf}`}>
+          <button className="confirm-btn">
+            CONFIRMAR
+          </button>
+        </Link>
       )
+    }
   }
+
+  getDataByCpf(inputArray) {
+    let cpf = inputArray.reduce((acc, i) => acc + i.toString())
+    fetch(`http://10.83.3.198:8000/api/credentials/${cpf}`)
+      .then(r => r.json())
+      .then(response => {
+        if (response.data.length > 0) {
+
+        }
+      })
+      .catch(e => console.log(e))
+  }
+
 }
