@@ -99,16 +99,4 @@ export default class Keyboard extends Component {
     }
   }
 
-  getDataByCpf(inputArray) {
-    let cpf = inputArray.reduce((acc, i) => acc + i.toString())
-    fetch(`http://10.83.3.198:8000/api/credentials/${cpf}`)
-      .then(r => r.json())
-      .then(response => {
-        if (response.data.length > 0) {
-
-        }
-      })
-      .catch(e => console.log(e))
-  }
-
 }

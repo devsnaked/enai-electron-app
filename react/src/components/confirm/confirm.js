@@ -6,7 +6,8 @@ export default class Confirm extends Component {
 
     state = {
         load: true,
-        credentials: null
+        credentials: null,
+        invalid: false
     }
 
     constructor(props) {
@@ -17,14 +18,28 @@ export default class Confirm extends Component {
     }
 
     render() {
-        if (this.state.load)
+        if (this.state.load && !this.state.invalid)
             return (
                 <div className="loader-content">
                     <div className="loader"></div>
                     <p>Carregando...</p>
                 </div>
             )
+        if (this.state.invalid) {
+            return (
+                <div className="content-confirm">
+                    <div className="header-bar">
+                        <button className="back-btn" onClick={() => this.goBack()}>
+                            <img src={icon} alt="icone de voltar" />
+                        </button>
+                    </div>
+                    <div className="confirm-data">
+                        <h2 style={{color: '#777'}}>NÃO FOI ENCONTRADO NENHUM REGISTRO. <br /> DIRIJA-SE À SECRETARIA PARA MAIS INFORMAÇÕES.</h2>
+                    </div>
 
+                </div>
+            )
+        }
         if (this.state.credentials)
             return (
                 <div className="content-confirm">
@@ -59,12 +74,15 @@ export default class Confirm extends Component {
                             load: false
                         }
                     })
+                } else {
+                    console.log(response)
+                    this.setState(state => { return { invalid: true } })
                 }
             })
-            .catch(e => console.log(e))
+            .catch(e => this.setState(state => { return { invalid: true } }))
     }
 
-    goBack(){
+    goBack() {
         this.props.history.goBack();
     }
 }
