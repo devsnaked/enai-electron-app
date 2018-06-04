@@ -47,7 +47,7 @@
   outline: none;
 }
 
-.header-bar button.confirm-btn{
+button.confirm-btn{
   float: right;
   background: #48AD70;
   height: 86px;
@@ -60,6 +60,14 @@
   cursor: pointer;
 }
 
+.retry{
+  width: unset !important;
+  float: unset !important;
+  font-size: 23px !important;
+  height: 78px !important;
+  padding: 0 25px !important;
+  margin-top: 50px;
+}
 
 .confirm-data{
   position: fixed;
@@ -80,5 +88,10 @@
   font-weight: bold;
   margin: 0;
   color: #989898;
-  font-size: 41px;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.confirm-data img{
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.94)
 }
