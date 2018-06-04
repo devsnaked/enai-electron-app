@@ -19,10 +19,8 @@ export default class QrReaderPage extends Component {
     render() {
         return (
             <div className="qr-content">
-                <Link to="/">
-                    <button className="back-btn">
-                        <img src={icon} alt="icone de voltar" />
-                    </button>
+                <Link to="/" className="back-btn">
+                    <img src={icon} alt="icone de voltar" />
                 </Link>
                 <div className="qr-scanner">
                     <QrReader

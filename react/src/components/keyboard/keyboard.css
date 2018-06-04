@@ -6,17 +6,7 @@
   padding: 0 70px;
 }
 
-.header-bar button.back-btn {
-  border-radius: 50%;
-  background: #fff;
-  width: 86px;
-  height: 86px;
-  border: solid 1px #707070;
-  cursor: pointer;
-  outline: none;
-}
-
-.header-bar button.confirm-btn{
+.header-bar .confirm-btn{
   float: right;
   background: #48AD70;
   height: 86px;

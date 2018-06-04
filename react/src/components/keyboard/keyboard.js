@@ -12,10 +12,8 @@ export default class Keyboard extends Component {
     return (
       <div className="content-keyboard">
         <div className="header-bar">
-          <Link to="/">
-            <button className="back-btn">
+          <Link to="/" className="back-btn">
               <img src={icon} alt="icone de voltar" />
-            </button>
           </Link>
           {this.confirmButton()}
         </div>
