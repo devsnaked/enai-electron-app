@@ -10,7 +10,11 @@ function createWindow () {
   mainWindow = new BrowserWindow({width: 1400, height: 900})
 
   // and load the index.html of the app.
-  mainWindow.loadURL('http://localhost:3000/')
+  mainWindow.loadURL('http://localhost:3000/');
+  mainWindow.on('show', () => {
+    console.log("entrou");
+   
+  });
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -23,10 +27,20 @@ function createWindow () {
     mainWindow = null
   })
 
+
   // console.log(mainWindow.webContents.print({
   //   silent: true,
   //   deviceName: 'Officejet_Pro_8600',
   //   printBackground: true
+//   setTimeout(()=>{
+//     mainWindow.webContents.print({
+//       deviceName: 'Officejet_Pro_8600_314EB2_',
+//       silent: true
+//     });
+//   }, 10000);
+  // console.log(mainWindow.webContents.getPrinters());
+  // console.log(mainWindow.webContents.print({
+  //   deviceName: 'Officejet_Pro_8600_314EB2_'
   // }))
   // mainWindow.webContents.on('found-in-page', (event, result) => {
   //   console.log(webContents)
