@@ -28,4 +28,8 @@
     color: #fff;
     font-family: Roboto;
     font-size: 20pt;
+    padding-top: 10px;
+}
+.message.warning{
+    color: #f7e300;
 }
