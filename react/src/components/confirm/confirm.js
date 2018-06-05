@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import icon from "../keyboard/icon/arrow.png";
+import Spinner from 'react-spinkit'
 import './confirm.css'
 
 export default class Confirm extends Component {
@@ -16,14 +17,16 @@ export default class Confirm extends Component {
 
         setTimeout(() => {
             this.loadCredential(props.match.params.cpf)
-        }, 500)
+        }, 1000)
     }
 
     render() {
         if (this.state.load && !this.state.invalid)
             return (
                 <div className="loader-content">
-                    <div className="loader"></div>
+                    {/* <Loader type="ball-scale-multiple"/> */}
+                    <Spinner name='ball-scale-multiple' className="spinner" color="#0cf"/>
+                    {/* <div className="loader"></div> */}
                     <p>Carregando...</p>
                 </div>
             )
@@ -96,7 +99,6 @@ export default class Confirm extends Component {
     }
 
     confirmBtn() {
-        console.log(window.electron.ipcRenderer)
         fetch(`http://10.83.3.198:8000/api/credentials/${this.state.credentials.id}`, {
             method: 'PATCH'
         })

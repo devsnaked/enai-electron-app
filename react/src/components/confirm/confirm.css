@@ -1,17 +1,4 @@
-.loader {
-    border: 5px solid #ccc;
-    border-radius: 50%;
-    border-top: 5px solid #fddc62;
-    width: 30px;
-    height: 30px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 0.5s linear infinite;
-  }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
 
 .loader-content{
     width: 100%;
@@ -27,6 +14,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.spinner {
+  display: block;
+  margin-bottom: 25px;
+  animation: 0.3s;
 }
 
 .header-bar {
