@@ -24,9 +24,7 @@ export default class Confirm extends Component {
         if (this.state.load && !this.state.invalid)
             return (
                 <div className="loader-content">
-                    {/* <Loader type="ball-scale-multiple"/> */}
                     <Spinner name='ball-scale-multiple' className="spinner" color="#0cf"/>
-                    {/* <div className="loader"></div> */}
                     <p>Carregando...</p>
                 </div>
             )
