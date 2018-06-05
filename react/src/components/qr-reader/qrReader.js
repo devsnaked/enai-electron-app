@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import QrReader from 'react-qr-reader'
-import './qrReader.css'
-import { timingSafeEqual } from 'crypto';
+import './qrReader.css';
 import { Link } from 'react-router-dom';
 import icon from '../keyboard/icon/arrow.png'
 export default class QrReaderPage extends Component {

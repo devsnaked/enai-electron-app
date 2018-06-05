@@ -1,5 +1,22 @@
-
-
+.isPrinting{
+  display: none;
+}
+.isPrinting p{
+  margin: 0;
+}
+.accreditedFeedback{
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+}
+@media print{
+  .accreditedFeedback{
+    display: none;
+  }
+  .isPrinting{
+    display: block;
+  }
+}
 .loader-content{
     width: 100%;
     height: 100vh;
@@ -60,10 +77,11 @@ button.confirm-btn{
 
 .confirm-data h2 {
   color: #0A6CB5;
-  font-size: 32px;
+  font-size: 26px;
   padding: 0;
   margin: 0;
   margin-bottom: 16px;
+  font-weight: bold;
 }
 
 .confirm-data p {

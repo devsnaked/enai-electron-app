@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import icon from "../keyboard/icon/arrow.png";
 import Spinner from 'react-spinkit'
 import './confirm.css'
@@ -9,12 +8,12 @@ export default class Confirm extends Component {
     state = {
         load: true,
         credentials: null,
-        invalid: false
+        invalid: false,
+        isPrinting: false
     }
 
     constructor(props) {
         super(props);
-
         setTimeout(() => {
             this.loadCredential(props.match.params.cpf)
         }, 1000)
@@ -25,7 +24,6 @@ export default class Confirm extends Component {
             return (
                 <div className="loader-content">
                     <Spinner name='ball-scale-multiple' className="spinner" color="#0cf"/>
-                    <p>Carregando...</p>
                 </div>
             )
         if (this.state.invalid) {
@@ -44,7 +42,19 @@ export default class Confirm extends Component {
                 </div>
             )
         }
-
+        if(this.state.isPrinting){
+            return (
+                <div>
+                    <div className="accreditedFeedback confirm-data">
+                        <h2>Credenciamento realizado com sucesso</h2>
+                        <p>Aguarde a impressão do seu crachá</p>
+                    </div>
+                    <div className="isPrinting">
+                        <p>{this.state.credentials.name}</p>
+                    </div>
+                </div>
+            );
+        }
         if (this.state.credentials)
             return (
                 <div className="content-confirm">
@@ -97,14 +107,20 @@ export default class Confirm extends Component {
     }
 
     confirmBtn() {
+        window.electron.ipcRenderer.send('print-cracha');
+        this.setState({'isPrinting': true})
+        window.electron.ipcRenderer.on('printed', () => {
+            setTimeout(()=>{
+                this.props.history.push('/');
+            }, 10*1000);
+        })
         fetch(`http://10.83.3.198:8000/api/credentials/${this.state.credentials.id}`, {
             method: 'PATCH'
+        }) 
+        .then(r => r.json())
+        .then(response => {
+            // if (response.data.length > 0)
         })
-            .then(r => r.json())
-            .then(response => {
-                if (response.data.length > 0)
-                    window.electron.ipcRenderer.send('print-cracha', { data: response });
-            })
     }
 
 }

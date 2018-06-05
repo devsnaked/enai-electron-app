@@ -26,7 +26,13 @@ function createWindow () {
 
 
   ipcMain.on('print-cracha', data => {
-    console.log('print');
+    mainWindow.webContents.print({
+      deviceName: 'Officejet_Pro_8600_314EB2_',
+      silent: true
+    }, flag => {
+      console.log(flag);
+      mainWindow.webContents.send('printed');
+    });
   })
 
 
@@ -35,10 +41,7 @@ function createWindow () {
   //   deviceName: 'Officejet_Pro_8600',
   //   printBackground: true
 //   setTimeout(()=>{
-//     mainWindow.webContents.print({
-//       deviceName: 'Officejet_Pro_8600_314EB2_',
-//       silent: true
-//     });
+//     
 //   }, 10000);
   // console.log(mainWindow.webContents.getPrinters());
   // console.log(mainWindow.webContents.print({
