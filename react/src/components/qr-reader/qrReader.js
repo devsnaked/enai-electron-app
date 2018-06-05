@@ -18,7 +18,7 @@ export default class QrReaderPage extends Component {
     render() {
         if(this.state.hasDifficulty){
             var data = {
-                msg: 'Diminua a opacidade da tela do celular', 
+                msg: 'Diminua o brilho da tela do celular', 
                 class: "message warning"
             } 
         } else {
@@ -45,7 +45,7 @@ export default class QrReaderPage extends Component {
             () => {
                 this.setState({hasDifficulty: true});
             },
-            1000
+            30*1000
         );
     }
 
