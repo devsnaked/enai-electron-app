@@ -20,5 +20,6 @@
     "electron": "^2.0.0"
   },
   "dependencies": {
+    "react-spinkit": "^3.0.0"
   }
 }
