@@ -6,17 +6,7 @@
   padding: 0 70px;
 }
 
-.header-bar button.back-btn {
-  border-radius: 50%;
-  background: #fff;
-  width: 86px;
-  height: 86px;
-  border: solid 1px #707070;
-  cursor: pointer;
-  outline: none;
-}
-
-.header-bar button.confirm-btn{
+.header-bar .confirm-btn{
   float: right;
   background: #48AD70;
   height: 86px;
@@ -37,7 +27,10 @@
 }
 
 .keyboard {
-  margin-top: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   width: 500px;
 }
@@ -52,7 +45,7 @@
 .keyboard .output {
   font-family: 'Roboto';
   font-size: 68px;
-  color: #989898;
+  color: #4c4c4c;
   user-select: none;
 }
 .keyboard .btns {
@@ -63,6 +56,7 @@
 }
 .keyboard .btns button{
     width: 80px;
+    outline: none;
     height: 80px;
     line-height: 80px;
     background: #fff;
