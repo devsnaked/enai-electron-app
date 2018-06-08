@@ -15,8 +15,18 @@ export default class Confirm extends Component {
     constructor(props) {
         super(props);
         setTimeout(() => {
-            this.loadCredential(props.match.params.cpf)
-        }, 1000)
+            this.loadCredential(props.match.params.cpf);
+            // setTimeout(()=>{
+            //     // this.setState({'isPrinting': true});
+            // },1500);
+        }, 1000);
+        if(window.electron){
+            window.electron.ipcRenderer.on('printed', () => {
+                setTimeout(()=>{
+                    this.props.history.push('/');
+                }, 10*1000);
+            });
+        }
     }
 
     render() {
@@ -44,12 +54,14 @@ export default class Confirm extends Component {
         }
         if(this.state.isPrinting){
             return (
-                <div>
+                <div className="accreditedFeedback-containner">
                     <div className="accreditedFeedback confirm-data">
                         <h2>Credenciamento realizado com sucesso</h2>
                         <p>Aguarde a impressão do seu crachá</p>
                     </div>
                     <div className="isPrinting">
+                        <img className="background" src="background.svg" alt="Participante"/> 
+                        <img className="foto" src={this.state.credentials.photo} alt="Participante"/> 
                         <p>{this.state.credentials.name}</p>
                     </div>
                 </div>
@@ -107,13 +119,9 @@ export default class Confirm extends Component {
     }
 
     confirmBtn() {
-        window.electron.ipcRenderer.send('print-cracha');
         this.setState({'isPrinting': true})
-        window.electron.ipcRenderer.on('printed', () => {
-            setTimeout(()=>{
-                this.props.history.push('/');
-            }, 10*1000);
-        })
+        window.electron.ipcRenderer.send('print-cracha');
+       
         fetch(`http://10.83.3.198:8000/api/credentials/${this.state.credentials.id}`, {
             method: 'PATCH'
         }) 

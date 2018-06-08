@@ -1,20 +1,51 @@
 .isPrinting{
   display: none;
 }
-.isPrinting p{
-  margin: 0;
-}
 .accreditedFeedback{
   width: 100%;
   text-transform: uppercase;
   text-align: center;
 }
+
+@page {
+  size:  2cm 2cm;
+  margin: 0;
+}
 @media print{
+  .accreditedFeedback-containner{
+    position: relative;
+  }
   .accreditedFeedback{
     display: none;
   }
   .isPrinting{
     display: block;
+  }
+  .isPrinting p{
+    margin: 0;
+    position: absolute;
+    top: 7.5cm;
+    left: 2cm;
+    font-size: 0.6cm;
+  }
+  .isPrinting .background{
+    width: 100%;
+    height: 100%;
+  }
+  .isPrinting .foto{
+    position: absolute;
+    width: 3cm;
+    top: 2.7cm;
+    right: 1.05cm;
+    border: 2px solid white;
+  }
+
+  body{
+    overflow: hidden;
+    width:105mm !important;
+    height:148mm !important;    
+    box-sizing: border-box;
+    page-break-after: always;
   }
 }
 .loader-content{

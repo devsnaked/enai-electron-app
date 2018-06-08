@@ -30,7 +30,6 @@ function createWindow () {
       deviceName: 'Officejet_Pro_8600_314EB2_',
       silent: true
     }, flag => {
-      console.log(flag);
       mainWindow.webContents.send('printed');
     });
   })
