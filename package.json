@@ -17,9 +17,11 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
+    "devtron": "^1.4.0",
     "electron": "^2.0.0"
   },
   "dependencies": {
+    "react-loaders": "^3.0.1",
     "react-qr-reader": "^2.1.0"
   }
 }
