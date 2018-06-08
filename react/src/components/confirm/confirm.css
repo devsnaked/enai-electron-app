@@ -1,17 +1,4 @@
-.loader {
-    border: 5px solid #ccc;
-    border-radius: 50%;
-    border-top: 5px solid #fddc62;
-    width: 30px;
-    height: 30px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 0.5s linear infinite;
-  }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
 
 .loader-content{
     width: 100%;
@@ -28,6 +15,11 @@
   align-items: center;
   flex-direction: column;
 }
+.spinner {
+  display: block;
+  margin-bottom: 25px;
+  animation: 0.3s;
+}
 
 .header-bar {
   margin: 50px 0;
@@ -35,16 +27,6 @@
   float: left;
   width: 100%;
   padding: 0 70px;
-}
-
-.header-bar button.back-btn {
-  border-radius: 50%;
-  background: #fff;
-  width: 86px;
-  height: 86px;
-  border: solid 1px #707070;
-  cursor: pointer;
-  outline: none;
 }
 
 button.confirm-btn{

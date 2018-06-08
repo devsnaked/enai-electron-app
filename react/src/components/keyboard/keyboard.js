@@ -4,7 +4,7 @@ import icon from "./icon/arrow.png";
 import { Link } from "react-router-dom";
 export default class Keyboard extends Component {
   state = {
-    input: [6, 4, 6, '.', 8, 8, 5, '.', 3, 7, 2, '-', 9, 8],
+    input: [],
     text: ["_", "_", "_", ".", "_", "_", "_", ".", "_", "_", "_", "-", "_", "_"]
   };
 
@@ -12,10 +12,8 @@ export default class Keyboard extends Component {
     return (
       <div className="content-keyboard">
         <div className="header-bar">
-          <Link to="/">
-            <button className="back-btn">
+          <Link to="/" className="back-btn">
               <img src={icon} alt="icone de voltar" />
-            </button>
           </Link>
           {this.confirmButton()}
         </div>

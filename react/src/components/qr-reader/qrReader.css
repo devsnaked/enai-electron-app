@@ -1,5 +1,6 @@
 .qr-scanner{
     width: 40%;
+    padding-top: 50px;
 }
 
 .qr-content{
@@ -17,21 +18,18 @@
     border: solid 100px rgba(0, 0, 0, 0.479) !important;
     /* border: solid 30px green !important; */
 }
-button.back-btn {
-    border-radius: 50%;
-    background: #fff;
-    width: 86px;
-    height: 86px;
-    border: solid 1px #707070;
-    cursor: pointer;
-    outline: none;
+.back-btn {
     position: absolute;
-    left: 5%;
-    top: 5%;
+    left: 3vw;
+    top: 3vw;
 }
 
 .message {
     color: #fff;
     font-family: Roboto;
     font-size: 20pt;
+    padding-top: 10px;
+}
+.message.warning{
+    color: #f7e300;
 }

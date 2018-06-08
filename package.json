@@ -4,7 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -18,10 +19,24 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "devtron": "^1.4.0",
-    "electron": "^2.0.0"
+    "electron": "^2.0.0",
+    "electron-builder": "^20.15.1"
   },
   "dependencies": {
     "react-loaders": "^3.0.1",
-    "react-qr-reader": "^2.1.0"
+    "react-qr-reader": "^2.1.0",
+    "react-spinkit": "^3.0.0"
+  },
+  "build": {
+    "appId": "com.enai.app",
+    "productName": "Enai auth app",
+    "target": "NSIS",
+    "directory": {
+      "output": "build"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
   }
 }
