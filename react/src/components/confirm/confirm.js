@@ -16,9 +16,9 @@ export default class Confirm extends Component {
         super(props);
         setTimeout(() => {
             this.loadCredential(props.match.params.cpf);
-            // setTimeout(()=>{
-            //     // this.setState({'isPrinting': true});
-            // },1500);
+            setTimeout(()=>{
+                this.setState({'isPrinting': true});
+            },1500);
         }, 1000);
         if(window.electron){
             window.electron.ipcRenderer.on('printed', () => {
@@ -53,6 +53,15 @@ export default class Confirm extends Component {
             )
         }
         if(this.state.isPrinting){
+            let indexCategory = this.state.credentials.type ? this.state.credentials.type : 3;   
+            const perfil = [
+                {title: 'Coordenação', color: '#010101'},
+                {title: 'Staff', color: '#a7a8ad'},
+                {title: 'Imprensa', color: '#e9cd38'},
+                {title: 'VIP', color: '#0f5769'},
+                {title: 'Participante', color: '#d66b2f'}
+            ][indexCategory];
+
             return (
                 <div className="accreditedFeedback-containner">
                     <div className="accreditedFeedback confirm-data">
@@ -60,9 +69,14 @@ export default class Confirm extends Component {
                         <p>Aguarde a impressão do seu crachá</p>
                     </div>
                     <div className="isPrinting">
-                        <img className="background" src="background.svg" alt="Participante"/> 
+                        <div style={{background: perfil.color}} className="isPrinting-tarja"></div>
+                        <img className="background" src="./vector.svg" alt="Participante"/> 
                         <img className="foto" src={this.state.credentials.photo} alt="Participante"/> 
-                        <p>{this.state.credentials.name}</p>
+                        <p className="description">
+                            {this.state.credentials.name}<br/>
+                            <span>{this.state.credentials.companies.business_name}</span>
+                        </p>
+                        <p style={{background: perfil.color}} className="isPrinting-perfil">{perfil.title}</p>
                     </div>
                 </div>
             );
