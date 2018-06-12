@@ -8,7 +8,7 @@
 }
 
 @page {
-  size:  2cm 2cm;
+  size:  A5;
   margin: 0;
 }
 .isPrinting-tarja{
@@ -70,8 +70,8 @@
 
   body{
     overflow: hidden;
-    width:105mm !important;
-    height:148mm !important;    
+    width:210mm !important;
+    height:148.5mm !important;    
     box-sizing: border-box;
     page-break-after: always;
   }
