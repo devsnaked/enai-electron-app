@@ -26,21 +26,21 @@ function createWindow () {
 
 
   ipcMain.on('print-cracha', data => {
-    // mainWindow.webContents.print({
-    //   deviceName: 'Officejet_Pro_8600_314EB2_',
-    //   silent: true
-    // }, flag => {
-    //   mainWindow.webContents.send('printed');
-    // });
-    mainWindow.webContents.printToPDF({ 
-      marginsType:0, pageSize: {width: "10.5cm", height: "14.8cm"}, 
-    },  function (error, data) {
-      if (error) throw error
-      fs.writeFile('/home/leonardovff/electron/output.pdf', data, (error) => {
-       
-      })
-      console.log(data);
+    mainWindow.webContents.print({
+      deviceName: 'Officejet_Pro_8600_314EB2_',
+      silent: true
+    }, flag => {
+      mainWindow.webContents.send('printed');
     });
+//     mainWindow.webContents.printToPDF({ 
+//       marginsType:0, pageSize: 'A5', 
+//     },  function (error, data) {
+//       if (error) throw error
+//       fs.writeFile('/home/leonardovff/electron/output.pdf', data, (error) => {
+       
+//       })
+//       console.log(data);
+//     });
   })
 
   // console.log(mainWindow.webContents.print({
