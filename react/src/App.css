@@ -1,28 +1,29 @@
-.App {
-  text-align: center;
+body{ 
+  background: 
+    linear-gradient(160deg, rgba(255,255,255, 0.3), rgba(177, 177, 176, 0.2)),
+    url('bg-body.png') no-repeat left center;
+  background-size: 
+    100%,
+    contain;
+  width: 100%;
+  height: 100vh;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+@media print{
+  body{
+    background: white;
+  }
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
+.back-btn {
+  display: inline-block;
+  border-radius: 50%;
   padding: 20px;
-  color: white;
+  background: #fff;
+  border: solid 1px #707070;
+  cursor: pointer;
+  outline: none;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@font-face{
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto/Roboto-Bold.ttf');
 }

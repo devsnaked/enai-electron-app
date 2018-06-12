@@ -1,8 +1,22 @@
 .content{
     width: 100%;
     height: 100vh;
-    background: url('./bg.png') no-repeat 100% 100%;
-    background-size: cover;
+    background: 
+        linear-gradient(rgba(250,250,250, 0.5), rgba(255, 255, 255, 0.5)),
+        linear-gradient(160deg, rgba(255,255,255, 0.28), rgba(177, 177, 176, 0.15)),
+        url('./vcl.png') no-repeat left center,
+        url('./logos.png') no-repeat right 6vh bottom 3vh,
+        url('./vtr.png') no-repeat right top,
+        url('./vbl.png') no-repeat left bottom,
+        linear-gradient(rgb(255,255,255), rgb(255, 255, 255));
+    background-size: 
+        100%,
+        100%,
+        contain, 
+        550px auto, 
+        25vmax auto, 
+        25vmax auto,
+        100%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -10,7 +24,6 @@
 }
 .center-content {
     text-align: center;
-    margin-top: -150px;
 }
 .center-content h1{
     color: #0A6CB5;
