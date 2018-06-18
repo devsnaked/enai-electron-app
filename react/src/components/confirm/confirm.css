@@ -1,5 +1,12 @@
 .isPrinting{
-  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+.body {
+  overflow: hidden;
 }
 .accreditedFeedback{
   width: 100%;
@@ -8,12 +15,12 @@
 }
 
 @page {
-  size:  A5;
+  size:  A4;
   margin: 0;
 }
 .isPrinting-tarja{
-  width: 130%;
-  height: 49%;
+  width: 0;
+  height: 0;
   position: absolute;
   top: -1cm;
   left: -2cm;
@@ -31,19 +38,51 @@
   font-size: 0.45cm;
   color: #ffffff;
 }
+.empty-div{
+  display: none;
+}
 @media print{
+  .empty-div{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    width: 50% !important;
+    height: calc(100% - 100px) !important;
+    /* background: url('./images/senai.svg') no-repeat bottom center  / 80%; */
+  }
+  .empty-div img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 10%;
+    width: 80%;
+  }
   .accreditedFeedback-containner{
     position: relative;
     width:105mm !important;
-    height:148mm !important; 
+    height:148mm !important;
     overflow: hidden;
     box-sizing: border-box;
   }
-  .accreditedFeedback{
+  html {
+    width:210mm !important;
+    height:148mm !important;
+  }
+    .accreditedFeedback{
     display: none;
   }
+  .isPrinting-tarja{
+    width: 130% !important;
+    height: 40% !important;
+  }
+
   .isPrinting{
+    width: unset;
+    height: unset;
     display: block;
+    opacity: 1;
   }
   .isPrinting p.description{
     margin: 0;
@@ -56,8 +95,8 @@
     font-size: 0.6em;
   }
   .isPrinting .background{
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     position: relative;
   }
   .isPrinting .foto{
@@ -71,7 +110,7 @@
   body{
     overflow: hidden;
     width:210mm !important;
-    height:148.5mm !important;    
+    height:148mm !important;
     box-sizing: border-box;
     page-break-after: always;
   }
