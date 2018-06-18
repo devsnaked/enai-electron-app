@@ -4,7 +4,9 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName='CE' --version-string.FileDescription='Electron tutorial app' --version-string.ProductName='Electron tutorial app'"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,10 +19,27 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^2.0.2",
-    "electron-winstaller": "^2.6.4"
+    "devtron": "^1.4.0",
+    "electron": "^2.0.0",
+    "electron-builder": "^20.15.1",
+    "electron-packager": "^12.1.0"
   },
   "dependencies": {
+    "loaders.css": "^0.1.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-qr-reader": "^2.1.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
     "react-spinkit": "^3.0.0"
+  },
+  "build": {
+    "appId": "com.enai.app",
+    "productName": "Enai auth app",
+    "target": "NSIS",
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
   }
 }

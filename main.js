@@ -7,7 +7,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1400, height: 900})
+  mainWindow = new BrowserWindow({width: 1400, height: 900, fullscreen: true})
 
   // and load the index.html of the app.
   mainWindow.loadURL('http://localhost:3000/');
@@ -32,12 +32,12 @@ function createWindow () {
     }, flag => {
       mainWindow.webContents.send('printed');
     });
-//     mainWindow.webContents.printToPDF({ 
-//       marginsType:0, pageSize: 'A5', 
+//     mainWindow.webContents.printToPDF({
+//       marginsType:0, pageSize: 'A5',
 //     },  function (error, data) {
 //       if (error) throw error
 //       fs.writeFile('/home/leonardovff/electron/output.pdf', data, (error) => {
-       
+
 //       })
 //       console.log(data);
 //     });
@@ -48,7 +48,7 @@ function createWindow () {
   //   deviceName: 'Officejet_Pro_8600',
   //   printBackground: true
 //   setTimeout(()=>{
-//     
+//
 //   }, 10000);
   // console.log(mainWindow.webContents.getPrinters());
   // console.log(mainWindow.webContents.print({
@@ -85,5 +85,3 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-
-
