@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder",
-    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName='CE' --version-string.FileDescription='Electron tutorial app' --version-string.ProductName='Electron tutorial app'"
+    "package-win": "electron-packager . --overwrite --asar=false --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName='CE' --version-string.FileDescription='Enai App' --version-string.ProductName='Enai app'"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
