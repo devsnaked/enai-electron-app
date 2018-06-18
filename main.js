@@ -1,13 +1,13 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, webContents, ipcMain} = require('electron')
-
+const {app, BrowserWindow, webContents, ipcMain} = require('electron');
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
+const fs = require('fs');
 let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1400, height: 900})
+  mainWindow = new BrowserWindow({width: 1400, height: 900, fullscreen: true})
 
   // and load the index.html of the app.
   mainWindow.loadURL('http://localhost:3000/');
@@ -26,19 +26,29 @@ function createWindow () {
 
 
   ipcMain.on('print-cracha', data => {
-    console.log('print');
-  })
+    mainWindow.webContents.print({
+      deviceName: 'Officejet_Pro_8600_314EB2_',
+      silent: true
+    }, flag => {
+      mainWindow.webContents.send('printed');
+    });
+//     mainWindow.webContents.printToPDF({
+//       marginsType:0, pageSize: 'A5',
+//     },  function (error, data) {
+//       if (error) throw error
+//       fs.writeFile('/home/leonardovff/electron/output.pdf', data, (error) => {
 
+//       })
+//       console.log(data);
+//     });
+  })
 
   // console.log(mainWindow.webContents.print({
   //   silent: true,
   //   deviceName: 'Officejet_Pro_8600',
   //   printBackground: true
 //   setTimeout(()=>{
-//     mainWindow.webContents.print({
-//       deviceName: 'Officejet_Pro_8600_314EB2_',
-//       silent: true
-//     });
+//
 //   }, 10000);
   // console.log(mainWindow.webContents.getPrinters());
   // console.log(mainWindow.webContents.print({
@@ -75,5 +85,3 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-
-

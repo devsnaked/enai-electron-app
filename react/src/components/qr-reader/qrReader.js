@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import QrReader from 'react-qr-reader'
-import './qrReader.css'
-import { timingSafeEqual } from 'crypto';
+import './qrReader.css';
 import { Link } from 'react-router-dom';
 import icon from '../keyboard/icon/arrow.png'
 export default class QrReaderPage extends Component {
@@ -19,7 +18,7 @@ export default class QrReaderPage extends Component {
     render() {
         if(this.state.hasDifficulty){
             var data = {
-                msg: 'Diminua a opacidade da tela do celular', 
+                msg: 'Diminua o brilho da tela do celular', 
                 class: "message warning"
             } 
         } else {
@@ -46,7 +45,7 @@ export default class QrReaderPage extends Component {
             () => {
                 this.setState({hasDifficulty: true});
             },
-            1000
+            30*1000
         );
     }
 
