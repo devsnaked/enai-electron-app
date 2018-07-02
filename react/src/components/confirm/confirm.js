@@ -134,7 +134,7 @@ export default class Confirm extends Component {
     }
 
     loadCredential(cpf) {
-        fetch(`http://api.enai2018.senai.br/api/credentials/${cpf}`)
+        fetch(`https://api.enai2018.senai.br/api/credentials/${cpf}`)
             .then(r => r.json())
             .then(response => {
                 if (response.data.length > 0) {
@@ -167,7 +167,7 @@ export default class Confirm extends Component {
             if(window.electron){
                 window.electron.ipcRenderer.send('print-cracha');
             }
-            fetch(`http://api.enai2018.senai.br/api/credentials/${this.state.credentials.id}`, {
+            fetch(`https://api.enai2018.senai.br/api/credentials/${this.state.credentials.id}`, {
                 method: 'PATCH'
             })
             .then(r => r.json())

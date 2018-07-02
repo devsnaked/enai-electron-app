@@ -10,7 +10,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({width: 1400, height: 900, fullscreen: true})
 
   // and load the index.html of the app.
-  mainWindow.loadURL('http://localhost:3000/');
+  mainWindow.loadURL('https://testscale-7e0d6.firebaseapp.com/');
   mainWindow.on('show', () => { });
 
   // Open the DevTools.
