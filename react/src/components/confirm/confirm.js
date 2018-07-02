@@ -57,6 +57,7 @@ export default class Confirm extends Component {
             )
         }
         if(this.state.isPrinting){
+            console.log(this.state.credentials)
             let indexCategory = this.state.credentials.type ? this.state.credentials.type : 1;
             const perfil = [
                 {title: 'Coordenação', color: '#010101'},
@@ -65,7 +66,7 @@ export default class Confirm extends Component {
                 {title: 'VIP', color: '#0f5769'},
                 {title: 'Participante', color: '#d66b2f'}
             ][indexCategory-1];
-
+            // delete this.state.credentials.type_msg
             return (
               <div className="print" style={{position: 'relative'}}>
                 <div className="accreditedFeedback-containner">
@@ -82,7 +83,7 @@ export default class Confirm extends Component {
                             {this.state.credentials.name}<br/>
                             <span>{this.state.credentials.companies.business_name}</span>
                         </p>
-                        <p style={{background: perfil.color}} className="isPrinting-perfil">{perfil.title}</p>
+                        <p style={{background: perfil.color, color: (this.state.credentials.type_msg) ? '#fff' : perfil.color }} className="isPrinting-perfil" >{this.state.credentials.type_msg || "-"}</p>
                     </div>
                 </div>
                 <div className="empty-div isPrinting">
@@ -133,7 +134,7 @@ export default class Confirm extends Component {
     }
 
     loadCredential(cpf) {
-        fetch(`https://api.enai2018.al.senai.br/api/credentials/${cpf}`)
+        fetch(`http://api.enai2018.senai.br/api/credentials/${cpf}`)
             .then(r => r.json())
             .then(response => {
                 if (response.data.length > 0) {
@@ -166,7 +167,7 @@ export default class Confirm extends Component {
             if(window.electron){
                 window.electron.ipcRenderer.send('print-cracha');
             }
-            fetch(`https://api.enai2018.al.senai.br/api/credentials/${this.state.credentials.id}`, {
+            fetch(`http://api.enai2018.senai.br/api/credentials/${this.state.credentials.id}`, {
                 method: 'PATCH'
             })
             .then(r => r.json())
